@@ -61,6 +61,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87202760264186460090C5A8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				87C8D9C0264153440066DBD6 /* AfricaApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		87202761264186660090C5A8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				87202763264186800090C5A8 /* Screen */,
+				87202762264186770090C5A8 /* Component */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		87202762264186770090C5A8 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		87202763264186800090C5A8 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				87C8D9C2264153440066DBD6 /* ContentView.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
 		87C8D9B4264153430066DBD6 = {
 			isa = PBXGroup;
 			children = (
@@ -80,10 +112,10 @@
 		87C8D9BF264153440066DBD6 /* Africa */ = {
 			isa = PBXGroup;
 			children = (
+				87202761264186660090C5A8 /* UI */,
+				87202760264186460090C5A8 /* App */,
 				87C8D9E426416F7E0066DBD6 /* Data */,
 				87C8D9CF26416DFD0066DBD6 /* Video */,
-				87C8D9C0264153440066DBD6 /* AfricaApp.swift */,
-				87C8D9C2264153440066DBD6 /* ContentView.swift */,
 				87C8D9C4264153470066DBD6 /* Assets.xcassets */,
 				87C8D9C9264153470066DBD6 /* Info.plist */,
 				87C8D9C6264153470066DBD6 /* Preview Content */,
