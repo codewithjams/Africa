@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct AfricaApp: App {
+
     var body: some Scene {
+
         WindowGroup {
-            ContentView()
+
+            /*
+             MainView is the entry screen of this application.
+             */
+            MainView()
+
         }
+
     }
+
 }
