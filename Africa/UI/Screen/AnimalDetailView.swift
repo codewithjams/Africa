@@ -67,6 +67,17 @@ struct AnimalDetailView: View {
 
                 }
 
+                // Group the Header and Facts together.
+                Group {
+
+                    // Show the Heading.
+                    HeadingView(headingImage: "questionmark.circle", headingText: "Did you Know?")
+
+                    // Show the List of Facts of an Animal.
+                    InsetFactView(animal: animal)
+
+                }.padding(.horizontal) // Add Horizontal Padding to this Group.
+
             }
 
             // Set the Title of this View.
