@@ -78,6 +78,22 @@ struct AnimalDetailView: View {
 
                 }.padding(.horizontal) // Add Horizontal Padding to this Group.
 
+                // Group the Header and Description together.
+                Group {
+
+                    // Show the Heading.
+                    HeadingView(
+                        headingImage: "info.circle",
+                        headingText: "All About \(animal.name)"
+                    )
+
+                    // Show the Text as Description of an Animal.
+                    Text(animal.description)
+                        .multilineTextAlignment(.leading) // Align the Texts from Start.
+                        .layoutPriority(1) // Set the Priority of this Text as 1 so that it's inflation in the UI takes precedence.
+
+                }.padding(.horizontal) // Add Horizontal Padding to this Group.
+
             }
 
             // Set the Title of this View.
