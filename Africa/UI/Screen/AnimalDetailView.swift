@@ -94,6 +94,20 @@ struct AnimalDetailView: View {
 
                 }.padding(.horizontal) // Add Horizontal Padding to this Group.
 
+                // Group the Header and Map together.
+                Group {
+
+                    // Show the Heading.
+                    HeadingView(
+                        headingImage: "map",
+                        headingText: "National Parks"
+                    )
+
+                    // Show the Placeholder Map View.
+                    InsetMapView()
+
+                }.padding(.horizontal) // Add Horizontal Padding to this Group.
+
             }
 
             // Set the Title of this View.
