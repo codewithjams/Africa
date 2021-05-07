@@ -108,6 +108,20 @@ struct AnimalDetailView: View {
 
                 }.padding(.horizontal) // Add Horizontal Padding to this Group.
 
+                // Group the Header and Link together.
+                Group {
+
+                    // Show the Heading.
+                    HeadingView(
+                        headingImage: "books.vertical",
+                        headingText: "Learn More"
+                    )
+
+                    // Show the Link of the Animal.
+                    ExternalWebLinkView(animal: animal)
+
+                }
+
             }
 
             // Set the Title of this View.
