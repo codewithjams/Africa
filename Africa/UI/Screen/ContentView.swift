@@ -38,8 +38,12 @@ struct ContentView: View {
                 // Iterate over every 'animals'.
                 ForEach(animals) { animal in
 
-                    // Populate the individual 'AnimalListItemView' in the 'List'.
-                    AnimalListItemView(animal: animal)
+                    NavigationLink(destination: AnimalDetailView(animal: animal)) {
+
+                        // Populate the individual 'AnimalListItemView' in the 'List'.
+                        AnimalListItemView(animal: animal)
+
+                    }
 
                 }
 
