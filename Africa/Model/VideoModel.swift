@@ -27,4 +27,11 @@ struct Video : Codable, Identifiable {
      */
     let headline: String
 
+    /**
+     Computed Property as String denoting the name of the Thumbnail Cover for Video found in the Assets.xcassets.
+     */
+    var thumbnail: String {
+        "video-\(id)"
+    }
+
 }
