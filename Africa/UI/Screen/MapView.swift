@@ -67,19 +67,31 @@ struct MapView: View {
 //                )
 
                 // Show a Generic 'MapAnnotation' with our own customization to the icon shown in the Map.
+//                MapAnnotation(
+//                    coordinate: location.location // Set the Location in the Map.
+//                ) {
+//
+//                    // Show an Image 'logo' which acts as the Icon of our 'MapAnnotation'.
+//                    Image("logo")
+//                        .resizable() // Make this Image resizable in nature.
+//                        .scaledToFit() // Make this Image scaled to fit.
+//                        .frame( // Set the Width, Height and Alignment of this Image.
+//                            width: 32,
+//                            height: 32,
+//                            alignment: .center
+//                        )
+//
+//                }
+
+                // Show a Custom 'MapAnnotation'.
                 MapAnnotation(
                     coordinate: location.location // Set the Location in the Map.
                 ) {
 
-                    // Show an Image 'logo' which acts as the Icon of our 'MapAnnotation'.
-                    Image("logo")
-                        .resizable() // Make this Image resizable in nature.
-                        .scaledToFit() // Make this Image scaled to fit.
-                        .frame( // Set the Width, Height and Alignment of this Image.
-                            width: 32,
-                            height: 32,
-                            alignment: .center
-                        )
+                    // Show the 'MapAnnotationView'.
+                    MapAnnotationView(
+                        location: location
+                    )
 
                 }
 
