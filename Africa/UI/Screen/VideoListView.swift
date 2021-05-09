@@ -30,9 +30,19 @@ struct VideoListView: View {
             // Render List of Videos.
             List(videos) { video in
 
-                // Show an individual Video content.
-                VideoListItemView(video: video)
-                    .padding(.vertical, 8)
+                // Navigate the User to 'VideoPlayerView' on the click of a 'VideoListItemView'.
+                NavigationLink(
+                    destination: VideoPlayerView(
+                        selectedVideo: video.id,
+                        videoTitle: video.name
+                    )
+                ) {
+
+                    // Show an individual Video content.
+                    VideoListItemView(video: video)
+                        .padding(.vertical, 8)
+
+                }
 
             }.listStyle(
                 InsetGroupedListStyle() // Set the List style as 'InsetGroupedListStyle'.
