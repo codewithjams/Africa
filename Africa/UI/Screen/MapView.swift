@@ -96,6 +96,86 @@ struct MapView: View {
                 }
 
             }
+        ).overlay(
+
+            // Align the contents of this Map Overlay horizontally.
+            HStack(
+                alignment: .center,
+                spacing: 12
+            ) {
+
+                // Show a Image of Compass as an icon.
+                Image("compass")
+                    .resizable() // Make this image as resizable in nature.
+                    .scaledToFit() // Make this image scaled to fit.
+                    .frame( // Set the frame dimensions of this image.
+                        width: 48,
+                        height: 48,
+                        alignment: .center
+                    )
+
+                // Align the Latitude and Longitude contents vertically.
+                VStack(alignment: .leading, spacing: 3) {
+
+                    // Align the Placeholder and Value of Latitude Horizontally.
+                    HStack {
+
+                        // Show a Placeholder Text as 'Latitude'.
+                        Text("Latitude:")
+                            .font(.footnote) // Set the font of this Text as Foot Note.
+                            .fontWeight(.bold) // Set the text style as Bold.
+                            .foregroundColor(.accentColor) // Set the Foreground Color as same as Accent Color.
+
+                        // Give a Space between the Placeholder and Value Text.
+                        Spacer()
+
+                        // Show a Value Text as the value of 'Latitude' of the center of the Map.
+                        Text("\(region.center.latitude)")
+                            .font(.footnote) // Set the font of this Text as Foot Note.
+                            .fontWeight(.bold) // Set the text style as Bold.
+                            .foregroundColor(.white) // Set the Foreground Color as White.
+
+                    }
+
+                    // Add a divider between Latitude and Longitude region.
+                    Divider()
+
+                    // Align the Placeholder and Value of Longitude Horizontally.
+                    HStack {
+
+                        // Show a Placeholder Text as 'Longitude'.
+                        Text("Longitude:")
+                            .font(.footnote) // Set the font of this Text as Foot Note.
+                            .fontWeight(.bold) // Set the text style as Bold.
+                            .foregroundColor(.accentColor) // Set the Foreground Color as same as Accent Color.
+
+                        // Give a Space between the Placeholder and Value Text.
+                        Spacer()
+
+                        // Show a Value Text as the value of 'Longitude' of the center of the Map.
+                        Text("\(region.center.longitude)")
+                            .font(.footnote) // Set the font of this Text as Foot Note.
+                            .fontWeight(.bold) // Set the text style as Bold.
+                            .foregroundColor(.white) // Set the Foreground Color as White.
+
+                    }
+
+                }
+
+            }.padding( // Set Vertical Padding of this Overlay as 12.
+                .vertical,
+                12
+            ).padding( // Set Horizontal Padding of this Overlay as 16.
+                .horizontal,
+                16
+            ).background( // Set the Background of this Overlay as Black Color being rounded rectangle and translucent opacity.
+                Color.black
+                    .cornerRadius(8)
+                    .opacity(0.6)
+            ).padding( // Provide overall padding to this Overlay.
+            ),
+            alignment: .top // Align this Overlay on the Top.
+
         )
 
     }
