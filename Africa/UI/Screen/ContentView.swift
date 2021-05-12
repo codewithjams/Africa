@@ -23,6 +23,14 @@ struct ContentView: View {
     let haptics = UIImpactFeedbackGenerator(style: .medium)
 
     /**
+     Constant List of `GridItem` as the layouts for Grid to be shown in Grid View.
+     */
+    let gridLayout: [GridItem] = Array(
+        repeating: GridItem(.flexible()),
+        count: 3
+    )
+
+    /**
      `Bool` as a `State` which observes whether Grid View is selected by the user or not.
      */
     @State private var isGridViewActive: Bool = false
@@ -73,8 +81,36 @@ struct ContentView: View {
                     // At this point, the Grid View is active, which also means the Grid View is active.
                     // So we render the Grid View as below.
 
-                    // TODO: Change this Placeholder Text to the supposed UI.
-                    Text("Grid View")
+                    // Make the Grid View scrollable in nature so that this view scrolls for smaller devices.
+                    ScrollView(.vertical, showsIndicators: false) {
+
+                        // Populate all the 'animals' under LazyGrid so that all Animals can be seen in Grid View.
+                        LazyVGrid(
+                            columns: gridLayout,
+                            alignment: .center,
+                            spacing: 10
+                        ) {
+
+                            // Iterate over every 'animals'.
+                            ForEach(animals) { animal in
+
+                                // Add a Navigation Link so that on the click of an animal, user is redirected to AnimalDetailView.
+                                NavigationLink(destination: AnimalDetailView(animal: animal)) {
+
+                                    // Show AnimalGridItemView to show the Image of the animal.
+                                    AnimalGridItemView(animal: animal)
+
+                                }
+
+                            }
+
+                        }.padding(
+                            10 // Set Padding to this Grid View as 10.
+                        ).animation(
+                            .easeIn // Add animation to this Grid View for Ease-In effect.
+                        )
+
+                    }
 
                 }
 
