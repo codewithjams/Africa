@@ -17,6 +17,16 @@ struct ContentView: View {
      */
     let animals: [Animal] = Bundle.main.decodeJSON(file: "animals.json")
 
+    /**
+     Constant as a value for providing Haptic Impact to the user on button's click.
+     */
+    let haptics = UIImpactFeedbackGenerator(style: .medium)
+
+    /**
+     `Bool` as a `State` which observes whether Grid View is selected by the user or not.
+     */
+    @State private var isGridViewActive: Bool = false
+
     var body: some View {
 
         NavigationView {
@@ -51,6 +61,54 @@ struct ContentView: View {
 
             // Set the Title of the NavigationView used.
             .navigationBarTitle("Africa", displayMode: .large)
+
+            .toolbar { // Set the Item for Toolbar.
+
+                // Wrap all of the items under ToolbarItem.
+                ToolbarItem(placement: .navigationBarTrailing) {
+
+                    // Stack these two buttons horizontally.
+                    HStack(spacing: 16) {
+
+                        // Show a Button for toggling the view to List View.
+                        Button(action: {
+                            isGridViewActive = false
+                            haptics.impactOccurred()
+                        }) {
+
+                            // Show an Icon as List for denoting the List View.
+                            Image(
+                                systemName: "square.fill.text.grid.1x2"
+                            ).font(
+                                .title2 // Set the font for this Image as Title2.
+                            ).foregroundColor(
+                                isGridViewActive ? .primary : .accentColor // Set the Foreground Color based on 'isGridViewActive'.
+                            )
+
+                        }
+
+                        // Show a Button for toggling the view to Group View.
+                        Button(action: {
+                            isGridViewActive = true
+                            haptics.impactOccurred()
+                        }) {
+
+                            // Show an Icon as Square Grid for denoting the Group View.
+                            Image(
+                                systemName: "square.grid.2x2"
+                            ).font(
+                                .title2 // Set the font for this Image as Title2.
+                            ).foregroundColor(
+                                isGridViewActive ? .accentColor : .primary // Set the Foreground Color based on 'isGridViewActive'.
+                            )
+
+                        }
+
+                    }
+
+                }
+
+            }
 
         }
 
