@@ -31,27 +31,31 @@ struct ContentView: View {
 
         NavigationView {
 
-            List {
+            Group {
 
-                // Show the 'CoverImageView' on the Top, so that we can see the Cover Images scrolled through 'TabView'.
-                CoverImageView()
-                    .frame(height: 300 // Set the Height of this View as 300.
-                    ).listRowInsets(
-                        EdgeInsets( // Insert RowInsets to override the default padding applied.
-                            top: 0,
-                            leading: 0,
-                            bottom: 0,
-                            trailing: 0
+                List {
+
+                    // Show the 'CoverImageView' on the Top, so that we can see the Cover Images scrolled through 'TabView'.
+                    CoverImageView()
+                        .frame(height: 300 // Set the Height of this View as 300.
+                        ).listRowInsets(
+                            EdgeInsets( // Insert RowInsets to override the default padding applied.
+                                top: 0,
+                                leading: 0,
+                                bottom: 0,
+                                trailing: 0
+                            )
                         )
-                    )
 
-                // Iterate over every 'animals'.
-                ForEach(animals) { animal in
+                    // Iterate over every 'animals'.
+                    ForEach(animals) { animal in
 
-                    NavigationLink(destination: AnimalDetailView(animal: animal)) {
+                        NavigationLink(destination: AnimalDetailView(animal: animal)) {
 
-                        // Populate the individual 'AnimalListItemView' in the 'List'.
-                        AnimalListItemView(animal: animal)
+                            // Populate the individual 'AnimalListItemView' in the 'List'.
+                            AnimalListItemView(animal: animal)
+
+                        }
 
                     }
 
