@@ -25,15 +25,55 @@ struct ContentView: View {
     /**
      Constant List of `GridItem` as the layouts for Grid to be shown in Grid View.
      */
-    let gridLayout: [GridItem] = Array(
-        repeating: GridItem(.flexible()),
-        count: 3
-    )
+    @State private var gridLayout: [GridItem] = [
+        GridItem(.flexible())
+    ]
+
+    /**
+     `Int` as a `State` which observes the change in Grid Columns, so that UI will be updated with proper Grid Layout on UI reconstruction.
+     */
+    @State private var gridColumn: Int = 1
+
+    /**
+     `String` as a `State` which observes the change in the Toolbar Icon and update the UI with currently set Icon.
+     */
+    @State private var toolbarIcon: String = "square.grid.2x2"
 
     /**
      `Bool` as a `State` which observes whether Grid View is selected by the user or not.
      */
     @State private var isGridViewActive: Bool = false
+
+    /**
+     Performs the Grid Switch with following actions performed:
+     - Changes the size of `gridLayout` based on this Logic: `gridLayout.count % 3 + 1`
+     - Updates the `gridColumn` according to the `gridLayout`.
+     - Updates the `toolbarIcon` based on no. of `gridColumn`.
+     */
+    private func gridSwitch() {
+
+        // Change the Grid Layout.
+        gridLayout = Array(
+            repeating: .init(.flexible()),
+            count: gridLayout.count % 3 + 1
+        )
+
+        // Update the Grid Column count.
+        gridColumn = gridLayout.count
+
+        // Based on the Grid Columns, set the Toolbar Icon.
+        switch gridColumn {
+        case 1:
+            toolbarIcon = "square.grid.2x2"
+        case 2:
+            toolbarIcon = "square.grid.3x2"
+        case 3:
+            toolbarIcon = "rectangle.grid.1x2"
+        default:
+            toolbarIcon = "square.grid.2x2"
+        }
+
+    }
 
     var body: some View {
 
@@ -148,11 +188,12 @@ struct ContentView: View {
                         Button(action: {
                             isGridViewActive = true
                             haptics.impactOccurred()
+                            gridSwitch()
                         }) {
 
                             // Show an Icon as Square Grid for denoting the Group View.
                             Image(
-                                systemName: "square.grid.2x2"
+                                systemName: toolbarIcon
                             ).font(
                                 .title2 // Set the font for this Image as Title2.
                             ).foregroundColor(
