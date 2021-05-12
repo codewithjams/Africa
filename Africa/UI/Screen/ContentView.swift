@@ -33,31 +33,48 @@ struct ContentView: View {
 
             Group {
 
-                List {
+                // Check whether the Grid View is active or not. On the basis of this, UI will be rendered.
+                if (!isGridViewActive) {
 
-                    // Show the 'CoverImageView' on the Top, so that we can see the Cover Images scrolled through 'TabView'.
-                    CoverImageView()
-                        .frame(height: 300 // Set the Height of this View as 300.
-                        ).listRowInsets(
-                            EdgeInsets( // Insert RowInsets to override the default padding applied.
-                                top: 0,
-                                leading: 0,
-                                bottom: 0,
-                                trailing: 0
+                    // At this point, the Grid View is not active, which also means the List View is active.
+                    // So we render the List View as below.
+
+                    List {
+
+                        // Show the 'CoverImageView' on the Top, so that we can see the Cover Images scrolled through 'TabView'.
+                        CoverImageView()
+                            .frame(height: 300 // Set the Height of this View as 300.
+                            ).listRowInsets(
+                                EdgeInsets( // Insert RowInsets to override the default padding applied.
+                                    top: 0,
+                                    leading: 0,
+                                    bottom: 0,
+                                    trailing: 0
+                                )
                             )
-                        )
 
-                    // Iterate over every 'animals'.
-                    ForEach(animals) { animal in
+                        // Iterate over every 'animals'.
+                        ForEach(animals) { animal in
 
-                        NavigationLink(destination: AnimalDetailView(animal: animal)) {
+                            // Add a Navigation Link so that on the click of an animal, user is redirected to AnimalDetailView.
+                            NavigationLink(destination: AnimalDetailView(animal: animal)) {
 
-                            // Populate the individual 'AnimalListItemView' in the 'List'.
-                            AnimalListItemView(animal: animal)
+                                // Populate the individual 'AnimalListItemView' in the 'List'.
+                                AnimalListItemView(animal: animal)
+
+                            }
 
                         }
 
                     }
+
+                } else {
+                    
+                    // At this point, the Grid View is active, which also means the Grid View is active.
+                    // So we render the Grid View as below.
+
+                    // TODO: Change this Placeholder Text to the supposed UI.
+                    Text("Grid View")
 
                 }
 
