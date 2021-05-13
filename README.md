@@ -71,3 +71,54 @@ This code is a follow-up on this course: <a href="https://www.udemy.com/course/s
     </p>
   </li>
 </ul>
+
+## Learnings
+
+Following concepts came in handy when developing the UI:
+- Swift Extension Functions.
+- Loading a JSON File from Project Files.
+- `TabView` to render multiple Items.
+- `NavigationView` to navigate between different UIs.
+- `EdgeInset` to override the default padding.
+- `GroupBox` to encapsulate multiple views together.
+- `ScrollView` to make the views and the screen scrollable.
+- `Map` from `MapKit`, in conjunction with `MKCoordinateRegion`, `CLLocationCoordinate2D` and `MKCoordinateSpan` to render the Apple Maps.
+- `MapAnnotation` to show a custom Marker/Pin in the `Map`.
+- `@State` to store the values that triggers reloading of UI on it's change.
+- `VideoPlayer` to play the Video from Project Files, in conjunction with `AVPlayer`
+- `ToolbarItem` to add custom Items in the Toolbar.
+- `UIImpactFeedbackGenerator` to generate Haptic Feedback.
+- `GeometryReader` to read information about the display rendered in the device.
+- `Animation` to add Animating Effects in the View.
+- `LazyGrid` to show the Items in the Grid.
+- `Slider` to show a Slider in the View.
+- `Link` to trigger navigation to browser in the device to open the specified URL.
+- `ViewModifier` to collate the common operation around the Views in a generic fashion.
+- Adding support for macOS Deployment.
+
+## Installation
+
+This project requires the latest version of Xcode, which you can install from the [Mac App Store](https://itunes.apple.com/en/app/xcode/id497799835?mt=12).
+
+To clone the Git repository to your local machine, including submodules:
+
+```sh
+git clone https://github.com/ritwikjamuar/Africa.git
+```
+
+# License
+```xml
+Designed and developed by 2021 ritwikjamuar (Ritwik Jamuar)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
