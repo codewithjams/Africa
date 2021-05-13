@@ -114,6 +114,10 @@ struct ContentView: View {
 
                         }
 
+                        // Show the Credits View at the Bottom.
+                        CreditsView()
+                            .modifier(CentreModifier()) // Add a Center Modifier to align this View to center horizontally.
+
                     }
 
                 } else {
